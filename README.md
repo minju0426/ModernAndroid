@@ -1,9 +1,9 @@
-#Modern Android
+# Modern Android
 
 
--ViewModel
--Lifecycle
--LiveData
--Observer Pattern
--DataBinding
--Repository Pattern
+- ViewModel
+- Lifecycle
+- LiveData
+- Observer Pattern
+- DataBinding
+- Repository Pattern
