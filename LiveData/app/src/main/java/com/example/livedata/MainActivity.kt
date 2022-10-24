@@ -34,7 +34,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.button.setOnClickListener {
             //livecounter +1
-            myViewModel.liveCounter.value = myViewModel.liveCounter.value?.plus(1)
+            if(binding.viewmodel?.hasChecked?.value == true) //nullable
+                myViewModel.liveCounter.value = myViewModel.liveCounter.value?.plus(1)
         }
 
 
