@@ -6,11 +6,8 @@ plugins {
 android {
     compileSdk 33
 
-    task wrapper(type: Wrapper) {
-        gradleVersion = '7.0'
-    }
     defaultConfig {
-        applicationId "com.example.viewmodel"
+        applicationId "com.example.livedata"
         minSdk 23
         targetSdk 33
         versionCode 1
@@ -32,27 +29,25 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
-    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
-        kotlinOptions {
-            freeCompilerArgs += [
-                    "-Xjvm-default=all",
-            ]
-        }
-    }
     buildFeatures{
-        viewBinding = true
+        viewBinding true
+    }
+    task wrapper(type: Wrapper) {
+        gradleVersion = '7.0'
     }
 }
 
 dependencies {
-    def lifecycle_version = "2.6.0-alpha02"
+    def lifecycle_version = "2.4.1"
     // ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")\
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    //livedata
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
     //savedstate
-    implementation("androidx.savedstate:savedstate-ktx:1.2.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
     implementation("androidx.activity:activity-ktx:1.6.0")
     implementation("androidx.fragment:fragment-ktx:1.5.3")
+
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
