@@ -21,8 +21,11 @@ class MainActivity : AppCompatActivity() {
         //데이터바인딩
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this,R.layout.activity_main)
 
+        //레포지트리 패턴
+        val repositoryImpl:MyRepositoryImpl = MyRepositoryImpl(20)
+
         // 팩토리 패턴 : 객체를 만드는 부분을 sub class에서 함
-        val factory = MyViewModelFactory(20, this)
+        val factory = MyViewModelFactory(20, repositoryImpl,this)
         val myViewModel by viewModels<MyViewModel>() { factory }
 
 
@@ -34,8 +37,12 @@ class MainActivity : AppCompatActivity() {
 
         binding.button.setOnClickListener {
             //livecounter +1
-            if(binding.viewmodel?.hasChecked?.value == true) //nullable
-                myViewModel.liveCounter.value = myViewModel.liveCounter.value?.plus(1)
+            if(binding.viewmodel?.hasChecked?.value == true) {//nullable
+                //myViewModel.liveCounter.value = myViewModel.liveCounter.value?.plus(1)
+                //repository pattern
+                repositoryImpl.increaseCounter()
+            }
+
         }
 
 
