@@ -2,8 +2,9 @@
 
 
 - ViewModel
-- Lifecycle
+  - Lifecycle
 - LiveData
-- Observer Pattern
-- DataBinding
-- Repository Pattern
+  - Observer Pattern
+  - DataBinding
+  - Repository Pattern
+  - Factory Pattern
