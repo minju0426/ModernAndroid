@@ -14,6 +14,7 @@ class MyViewModel(_counter : Int, private val savedStateHandle: SavedStateHandle
         "$counter 입니다"
     }
 
+    var hasChecked:MutableLiveData<Boolean> = MutableLiveData(false)
 
     var counter = savedStateHandle.get<Int>(SAVE_STATE_KEY) ?: _counter //null이면 초기값으로 설정
 
